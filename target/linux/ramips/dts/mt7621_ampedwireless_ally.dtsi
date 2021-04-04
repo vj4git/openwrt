@@ -134,7 +134,7 @@
 			partition@0 {
 				label = "kernel";
 				reg = <0x0 0x400000>;	/* 4MB */
-			}
+			};
 			partition@400000 {
 				label = "ubi";
 				reg = <0x400000 0x1c00000>;	/* 28MB */
