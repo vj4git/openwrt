@@ -114,8 +114,9 @@ define Device/alfa-network_quad-e4g
 endef
 TARGET_DEVICES += alfa-network_quad-e4g
 
-define Device/ampedwireless_ally
+define Device/ampedwireless_ally_common
   DEVICE_VENDOR := Amped Wireless
+  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware uboot-envtools
   IMAGE_SIZE := 32768k
   KERNEL_SIZE := 4096k
   BLOCKSIZE := 128k
@@ -128,23 +129,21 @@ define Device/ampedwireless_ally
 endef
 
 define Device/ampedwireless_ally-r1900k
-  $(Device/ampedwireless_ally)
+  $(Device/ampedwireless_ally_common)
   DEVICE_MODEL := ALLY-R1900K
-  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware uboot-envtools kmod-usb3
+  DEVICE_PACKAGES += kmod-usb3
 endef
 TARGET_DEVICES += ampedwireless_ally-r1900k
 
 define Device/ampedwireless_ally-00x19k
-  $(Device/ampedwireless_ally)
+  $(Device/ampedwireless_ally_common)
   DEVICE_MODEL := ALLY-00X19K
-  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware uboot-envtools
 endef
 TARGET_DEVICES += ampedwireless_ally-00x19k
 
 define Device/ampedwireless_ally-ar1200l
-  $(Device/ampedwireless_ally)
+  $(Device/ampedwireless_ally_common)
   DEVICE_MODEL := ALLY-AR1200L
-  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware uboot-envtools
 endef
 TARGET_DEVICES += ampedwireless_ally-ar1200l
 

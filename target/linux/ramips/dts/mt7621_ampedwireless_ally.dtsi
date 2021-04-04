@@ -61,7 +61,7 @@
 };
 
 &pcie0 {
-	wifi0: wifi@0,0 {
+	wifi@0,0 {
 		compatible = "pci14c3,7615";
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x0000>;
@@ -129,13 +129,16 @@
 		 */
 
 		partition@140000 {
-			label = "kernel";
-			reg = <0x140000 0x400000>;	/* 4MB */
-		};
-
-		partition@540000 {
-			label = "ubi";
-			reg = <0x540000 0x1c00000>;	/* 28MB */
+			label = "firmware";
+			reg = <0x140000 0x2000000>;	/* 32MB */
+			partition@0 {
+				label = "kernel";
+				reg = <0x0 0x400000>;	/* 4MB */
+			}
+			partition@400000 {
+				label = "ubi";
+				reg = <0x400000 0x1c00000>;	/* 28MB */
+			};
 		};
 
 		partition@2140000 {
